@@ -1,8 +1,9 @@
 const Contato = require('../models/contatoModel')
 
 exports.index = function(req,res){
-res.render('contato')
-}
+    res.render('contato',{
+    contato: {}})
+    }
 
 exports.register = async function(req,res){
 
