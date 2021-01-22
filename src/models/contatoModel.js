@@ -30,6 +30,15 @@ contato.prototype.register = async function(){
     this.contato = await contatoModel.create(this.body)
 
 }
+contato.prototype.edit = async function(id){
+    if(typeof id !== 'string') return;
+    this.valida()
+    if(this.errors.length>0) return;
+    this.contato = await contatoModel.findByIdAndUpdate(id, this.body, { new:true })
+    
+}
+
+
 contato.prototype.valida = function(){
     this.cleanUp()
     if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('email inválido')
@@ -51,5 +60,6 @@ contato.prototype.cleanUp = function(){
        telefone: this.body.telefone
     }
 }
+
 
 module.exports = contato;
