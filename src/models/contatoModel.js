@@ -9,7 +9,7 @@ const contatoSchema = new mongoose.Schema({
   crieadoEm: { type: Date,  default: Date.now }, 
 });
 
-const contatoModel = mongoose.model('contato', contatoSchema);
+const contatoModel = mongoose.model('contato', contatoSchema)
 
 function contato(body){
     this.body=body
