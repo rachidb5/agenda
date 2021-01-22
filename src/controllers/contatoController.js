@@ -27,3 +27,12 @@ exports.register = async function(req,res){
         }
 
 }
+
+exports.editIndex = async function(req,res){
+    if(!req.params.id) return res.render('404')
+
+    const contato = await Contato.buscaPorId(req.params.id)
+    if(!contato) return res.render('404')
+
+    res.render('contato', { contato })
+}
