@@ -18,6 +18,7 @@ route.get('/login/logout', userController.logout)
 //rotas de contato
 route.get('/contato', loginRequired, contatoController.index)
 route.post('/contato/register', contatoController.register)
+route.get('/contato/:id', contatoController.editIndex)
 
 
 
