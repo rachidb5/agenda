@@ -22,6 +22,13 @@ contato.buscaPorId = async function(id){
     const user = await contatoModel.findById(id)
     return user
 }
+
+contato.delete = async function(id){
+    if(typeof id!=='string') return
+    const contato = await contatoModel.findOneAndDelete({_id: id})
+    return contato
+}
+
 contato.buscaContato = async function(){
     
     const contatos= await contatoModel.find().sort({ nome:1 })
