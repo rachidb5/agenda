@@ -22,6 +22,11 @@ contato.buscaPorId = async function(id){
     const user = await contatoModel.findById(id)
     return user
 }
+contato.buscaContato = async function(){
+    
+    const contatos= await contatoModel.find().sort({ nome:1 })
+    return contatos
+}
 
 
 contato.prototype.register = async function(){
